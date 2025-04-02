@@ -1,0 +1,256 @@
+@font-face {
+  font-family: Young-Serif;
+  src: url(./assets/fonts/young-serif/YoungSerif-Regular.ttf);
+}
+@font-face {
+  font-family: Outfit;
+  src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: hsl(30, 54%, 90%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.recipe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: hsl(0, 0%, 100%);
+  width: 100%;
+  max-width: 100%;
+}
+.recipe__image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.recipe__text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+}
+.recipe__text-content > * {
+  align-self: stretch;
+}
+.recipe__image {
+  height: 10.6875rem;
+}
+.recipe__text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2.5rem;
+}
+.recipe__text-content > * {
+  align-self: stretch;
+}
+.recipe__text {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  font-family: "Outfit";
+  font-size: 1rem;
+  color: hsl(30, 10%, 34%);
+}
+.recipe__action {
+  font-weight: 700;
+  color: hsl(24, 5%, 18%);
+}
+.recipe__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+}
+.recipe__intro > * {
+  align-self: stretch;
+}
+.recipe__title {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  font-family: "Young-Serif";
+  color: hsl(24, 5%, 18%);
+  font-size: 2.25rem;
+}
+.recipe__description {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  font-family: "Outfit";
+  font-size: 1rem;
+  color: hsl(30, 10%, 34%);
+}
+
+.preparation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: hsl(330, 100%, 98%);
+  border-radius: 0.75rem;
+}
+.preparation > * {
+  align-self: stretch;
+}
+.preparation__title {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  font-family: "Outfit";
+  color: hsl(332, 51%, 32%);
+  font-size: 1.25rem;
+}
+.preparation__title--rose {
+  font-weight: 600;
+}
+.preparation__list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style-type: disc;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+}
+.preparation__item {
+  color: hsl(332, 51%, 32%);
+}
+
+.ingredients,
+.instructions,
+.nutrition {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  list-style-position: outside;
+  padding-left: 1.5rem;
+  gap: 1.5rem;
+}
+.ingredients > *,
+.instructions > *,
+.nutrition > * {
+  align-self: stretch;
+}
+.ingredients__title,
+.instructions__title,
+.nutrition__title {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 100%;
+  font-family: "Young-Serif";
+  color: hsl(14, 45%, 36%);
+  font-size: 1.75rem;
+}
+.ingredients__text,
+.instructions__text,
+.nutrition__text {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  font-family: "Outfit";
+  font-size: 1rem;
+  color: hsl(30, 10%, 34%);
+}
+.ingredients__item,
+.instructions__item,
+.nutrition__item {
+  font-weight: 700;
+  padding-left: 1rem;
+  font-family: "Outfit";
+  color: hsl(14, 45%, 36%);
+  line-height: 150%;
+}
+.ingredients__item:not(:last-child),
+.instructions__item:not(:last-child),
+.nutrition__item:not(:last-child) {
+  padding-bottom: 0.5rem;
+}
+
+.nutrition__value {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-self: stretch;
+}
+.nutrition__item {
+  display: flex;
+  padding: 0rem 2rem;
+  align-items: center;
+  gap: 1rem;
+  align-self: stretch;
+}
+.nutrition__label, .nutrition__amount {
+  width: 100%;
+  height: 1.5rem;
+}
+.nutrition__label {
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  font-family: "Outfit";
+  font-size: 1rem;
+  color: hsl(30, 10%, 34%);
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    width: 48rem;
+    padding: 8rem 3rem;
+    gap: 0.5rem;
+  }
+  .card {
+    display: flex;
+    max-width: 38.5rem;
+    padding: 2.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    border-radius: 1.5rem;
+    background-color: hsl(0, 0%, 100%);
+  }
+}
+@media only screen and (min-width: 1440px) {
+  body {
+    width: auto;
+    padding: 8rem 3rem;
+    gap: 0.5rem;
+  }
+  .card {
+    display: flex;
+    max-width: 38.5rem;
+    padding: 2.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+    border-radius: 1.5rem;
+    background-color: hsl(0, 0%, 100%);
+    max-width: 46rem;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

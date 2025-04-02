@@ -1,0 +1,312 @@
+@font-face {
+    font-family: Young-Serif;
+    src: url(./assets/fonts/young-serif/YoungSerif-Regular.ttf);
+}
+@font-face {
+    font-family: Outfit;
+    src: url(./assets/fonts/outfit/Outfit-VariableFont_wght.ttf);
+}
+
+//Variables
+
+//Colors
+$white-color: hsl(0, 0%, 100%);
+$stone-100-color: hsl(30, 54%, 90%);
+$stone-150-color: hsl(30, 18%, 87%);
+$stone-600-color: hsl(30, 10%, 34%);
+$stone-900-color:  hsl(24, 5%, 18%);
+$brown-color: hsl(14, 45%, 36%);
+$rose-800-color: hsl(332, 51%, 32%);
+$rose-50-color: hsl(330, 100%, 98%);
+
+
+//Spacing
+$spacing-100: 0.5rem;    //8px
+$spacing-150: 0.75rem;   //12px
+$spacing-200: 1rem;      //16px
+$spacing-300: 1.5rem;    //24px
+$spacing-400: 2rem;      //32px
+$spacing-500: 2.5rem;    //40px
+$spacing-600: 3rem;      //48px
+$spacing-1600: 8rem;     //128px
+
+//Typography
+$text-1: 2.5rem;    //40px
+$text-2: 1.75rem;   //28px
+$text-3: 1.25rem;   //20px
+$text-4: 1rem;      //16px
+
+//Font-family
+$font-young-serif: 'Young-Serif';
+$font-outfit: 'Outfit';
+
+//Mixins
+@mixin flex-column($align-items: center) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: $align-items;
+}
+
+@mixin flex-column-stretch {
+    > * {
+        align-self: stretch;
+    }
+}
+
+@mixin title($font-family, $color, $font-size) {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    font-family: $font-family;
+    color: $color;
+    font-size: $font-size;
+}
+
+
+@mixin text($font-family, $color, $font-size) {
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    font-family: $font-family;
+    font-size: $font-size;
+    color: $color;
+}
+
+@mixin list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-100;
+    list-style-position: outside;
+    padding-left: $spacing-300
+}
+
+@mixin table {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-150;
+    align-self: stretch;
+}
+
+@mixin table-item {
+    display: flex;
+    padding: 0rem $spacing-400,;
+    align-items: center;
+    gap: $spacing-200;
+    align-self: stretch;
+}
+
+@mixin card {
+    display: flex;
+    max-width: 38.5rem;
+    padding:$spacing-500;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-500;
+    border-radius: $spacing-300;
+    background-color: $white-color;
+}
+
+@mixin page-dimension($widht, $padding, $gap) {
+    width: $widht;
+    padding: $padding;
+    gap: $gap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $stone-100-color;
+    @include flex-column(center);
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+
+}
+
+.recipe {
+        @include flex-column;
+        background-color: $white-color;
+        width: 100%;
+        max-width: 100%;
+        
+        &__image {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        &__text-content {
+            @include flex-column;
+            @include flex-column-stretch;
+            gap: $spacing-400;
+            padding: $spacing-500;
+        }
+        
+        &__image {
+            height: 10.6875rem;
+        }
+        
+        &__text-content {
+            @include flex-column;
+            @include flex-column-stretch;
+            gap: $spacing-400;
+            padding: $spacing-500;
+        }
+        
+        &__text {
+            @include text($font-outfit, $stone-600-color, $text-4);
+        }
+        
+        &__action {
+            font-weight: 700;
+            color: $stone-900-color;
+        }
+        
+        &__intro {
+            @include flex-column;
+            @include flex-column-stretch;
+            gap: $spacing-300;
+        }
+        
+        &__title {
+            @include title($font-young-serif, $stone-900-color, 2.25rem);
+        }
+        
+        &__description {
+            @include text($font-outfit, $stone-600-color, $text-4);
+        }
+    }
+    
+    .preparation {
+        @include flex-column;
+        @include flex-column-stretch;
+        gap: $spacing-200;
+        padding: $spacing-300;
+        background-color: $rose-50-color;
+        border-radius: $spacing-150;
+        
+        &__title {
+            @include title($font-outfit, $rose-800-color, $text-3);
+            
+            &--rose {
+                font-weight: 600;
+            }
+        }
+        
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: $spacing-100;
+            list-style-type: disc;
+            list-style-position: outside;
+            padding-left: $spacing-300
+        }
+        
+        &__item {
+        color: $rose-800-color; //Add color to bullet point
+    }
+}
+
+// DRY: Create a mixin for common section styles
+@mixin section-base {
+    @include flex-column;
+    @include flex-column-stretch;
+    @include list;
+    gap: $spacing-300;
+}
+
+// DRY: Create a mixin for section titles
+@mixin section-title {
+    @include title($font-young-serif, $brown-color, $text-2);
+}
+
+// DRY: Create a mixin for section text
+@mixin section-text {
+    @include text($font-outfit, $stone-600-color, $text-4);
+}
+
+// DRY: Create a mixin for section items
+@mixin section-item {
+    font-weight: 700;
+    padding-left: $spacing-200;
+    font-family: $font-outfit;
+    color: $brown-color;
+    line-height: 150%;
+    
+    &:not(:last-child) {
+        padding-bottom: $spacing-100;
+    }
+}
+
+// BEM: Group sections with common styles
+// Note: These sections share the same base structure and styling
+.ingredients,
+.instructions,
+.nutrition {
+    @include section-base;
+    
+    &__title {
+        @include section-title;
+    }
+    
+    &__text {
+        @include section-text;
+    }
+    
+    &__item {
+        @include section-item;
+    }
+}
+
+// BEM: Nutrition specific styles
+// Note: Nutrition section has unique table layout and styling
+.nutrition {
+    &__value {
+        @include table;
+    }
+    
+    &__item {
+        @include table-item;
+    }
+    
+    // IMPORTANT: Fixed dimensions for consistent table layout
+    &__label,
+    &__amount {
+        width: 100%;
+        height: $spacing-300;
+    }
+    
+    &__label {
+        @include section-text;
+    }
+}
+
+// IMPORTANT: Responsive breakpoints
+// Note: Card styles only apply from 768px onwards
+@media only screen and (min-width: 768px) {
+    body {
+        @include page-dimension(48rem, $spacing-1600 $spacing-600, $spacing-100);
+    }
+    
+    .card {
+        @include card;
+    }
+}
+
+// IMPORTANT: Large screen optimization
+// Note: Content is centered with max-width for better readability
+@media only screen and (min-width: 1440px) {
+    body {
+        @include page-dimension(auto, $spacing-1600 $spacing-600, $spacing-100);
+    }
+    
+    .card {
+        @include card;
+        max-width: 46rem;
+    }
+}
