@@ -26,7 +26,7 @@ This is a solution to the [Recipe page challenge on Frontend Mentor](https://www
 ### Links
 
 - Solution URL: [https://github.com/CodeNautique/Recipe-page-main]
-- Live Site URL: [recipe-page-main-tau-ebon.vercel.app]
+- Live Site URL: [https://recipe-page-main-tau-ebon.vercel.app/]
 
 ## My process
 
