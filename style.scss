@@ -290,7 +290,7 @@ body {
 // Note: Card styles only apply from 768px onwards
 @media only screen and (min-width: 768px) {
     body {
-        @include page-dimension(48rem, $spacing-1600 $spacing-600, $spacing-100);
+        @include page-dimension(auto, $spacing-1600 $spacing-600, $spacing-100);
     }
     
     .card {
